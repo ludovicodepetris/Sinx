@@ -309,13 +309,14 @@ echo "Impossibile creare la tabella <b>Stato Patrimoniale</b> oppure la tabella 
 echo "Tabella Stato Patrimoniale Creata!<br>"; 
 } 
 
-$sql = ("CREATE TABLE `comuni` (
-  `id_com` int(6) unsigned NOT NULL auto_increment,
-  `id_pro` int(4) unsigned NOT NULL,
-  `cap` int(5) unsigned zerofill NOT NULL
-  `comune` varchar(200) character set latin1 NOT NULL,
-  PRIMARY KEY  (`id_com`)
+$sql = ("CREATE TABLE comuni (
+  id_com int(6) unsigned NOT NULL auto_increment,
+  id_pro int(4) unsigned NOT NULL,
+  cap int(5) unsigned zerofill NOT NULL,
+  comune varchar(200) character set latin1 NOT NULL,
+  PRIMARY KEY  (id_com)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8101");
+
 // Esecuzione della query e controllo degli eventuali errori
 $result = mysqli_query($link, $sql); 
 // Verifico se la tabella è stata creata oppure no oppure già esiste
@@ -325,10 +326,10 @@ echo "Impossibile creare la tabella <b>Comuni</b> oppure la tabella gi&agrave es
 echo "Tabella Comuni Creata!<br>"; 
 } 
 
-$sql = ("CREATE TABLE `regioni` (
-  `id_reg` int(3) unsigned NOT NULL auto_increment,
-  `nome_regione` varchar(200) character set latin1 NOT NULL,
-  PRIMARY KEY  (`id_reg`)
+$sql = ("CREATE TABLE regioni (
+  id_reg int(3) unsigned NOT NULL auto_increment,
+  nome_regione varchar(200) character set latin1 NOT NULL,
+  PRIMARY KEY  (id_reg)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21");
 // Esecuzione della query e controllo degli eventuali errori
 $result = mysqli_query($link, $sql); 
@@ -339,11 +340,11 @@ echo "Impossibile creare la tabella <b>Regioni</b> oppure la tabella gi&agrave e
 echo "Tabella Regioni Creata!<br>"; 
 } 
 
-$sql = ("CREATE TABLE `province` (
-  `id_pro` int(4) unsigned NOT NULL auto_increment,
-  `id_reg` int(3) unsigned NOT NULL,
-  `nome_provincia` varchar(200) character set latin1 NOT NULL,
-  PRIMARY KEY  (`id_pro`)
+$sql = ("CREATE TABLE province (
+  id_pro int(4) unsigned NOT NULL auto_increment,
+  id_reg int(3) unsigned NOT NULL,
+  nome_provincia varchar(200) character set latin1 NOT NULL,
+  PRIMARY KEY  (id_pro)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=111");
 // Esecuzione della query e controllo degli eventuali errori
 $result = mysqli_query($link, $sql); 
@@ -8756,9 +8757,9 @@ echo "Predispongo la tabella del conto economico<br>";
 } 
 
 //POPOLO LO STATO PATRIMONIALE
-$sql = "INSERT INTO `tb_stato_patrimoniale` (`descrizione`, `valore`, `costoricavo`) VALUES
-(' QUOTE ASSOCIATIVE ANCORA DA VERSARE', '0', 'attivita'),
-('', '', 'attivita'),
+$sql = "INSERT INTO tb_stato_patrimoniale (descrizione, valore, costoricavo) VALUES
+('QUOTE ASSOCIATIVE ANCORA DA VERSARE', '0', 'attivita'),
+('', '0', 'attivita'),
 ('', '0', 'attivita'),
 ('1 Spese di costituzione:', '0', 'attivita'),
 ('2 Concessioni,licenze,software:', '0', 'attivita'),
@@ -8777,7 +8778,7 @@ $sql = "INSERT INTO `tb_stato_patrimoniale` (`descrizione`, `valore`, `costorica
 ('2 Crediti immobilizzati', '0', 'attivita'),
 ('di cui esigibili entro l esercizio successivo', '0', 'attivita'),
 ('3 Altri titoli', '0', 'attivita'),
-('', '', 'attivita'),
+('', '0', 'attivita'),
 ('', '0', 'attivita'),
 ('1 Materie prime, sussidiarie e di consumo', '0', 'attivita'),
 ('2 Prodotti in corso di lavorazione e semilavorati', '0', 'attivita'),
@@ -8795,8 +8796,8 @@ $sql = "INSERT INTO `tb_stato_patrimoniale` (`descrizione`, `valore`, `costorica
 ('1 Depositi bancari e postali', '0', 'attivita'),
 ('2 Assegni', '0', 'attivita'),
 ('3 Denaro e valori in cassa', '0', 'attivita'),
-(' RATEI E RISCONTI ATTIVI', '', 'attivita'),
-('', '', 'passivita'),
+(' RATEI E RISCONTI ATTIVI', '0', 'attivita'),
+('', '0', 'passivita'),
 (' Fondo di dotazione dell Ente', '0', 'passivita'),
 ('', '0', 'passivita'),
 ('1 Riserve statutarie', '0', 'passivita'),
@@ -8810,11 +8811,11 @@ $sql = "INSERT INTO `tb_stato_patrimoniale` (`descrizione`, `valore`, `costorica
 ('2 Riserve accantonate negli esercizi precedenti', '0', 'passivita'),
 ('3 Contributi in conto capitale liberamente utilizzabili', '0', 'passivita'),
 ('4 Lasciti testamenti e donazioni -se beni di utilita  pluriennali-', '0', 'passivita'),
-('', '', 'passivita'),
+('', '0', 'passivita'),
 ('1 Fondi Per trattamento di quiescienza', '0', 'passivita'),
 ('2 Altri', '0', 'passivita'),
 (' TRATTAMENTO DI FINE RAPPORTO LAVORO SUBORDINATO', '0', 'passivita'),
-('', '', 'passivita'),
+('', '0', 'passivita'),
 ('1 Debiti verso banche', '0', 'passivita'),
 ('2 Debiti verso altri finanziatori', '0', 'passivita'),
 ('3 Acconti', '0', 'passivita'),
